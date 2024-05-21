@@ -8,8 +8,9 @@ if (!dbUrl) {
 
 const connectDB = async () => {
   try {
-    await sql.connect(dbUrl);
+    const pool = await sql.connect(dbUrl);
     console.log("Database connected");
+    return pool;
   } catch (error) {
     throw error;
   }
